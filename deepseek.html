@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIT SITE</title>
+    <style>
+        body {
+            background-color: #8B4513; /* SHIT brown */
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+        .shit-header {
+            font-size: 10em;
+            animation: spin 2s linear infinite;
+            text-shadow: 0 0 20px #FF0000;
+        }
+        .shit-button {
+            background-color: #654321;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 2em;
+            margin: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .shit-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .shit-item {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: #A0522D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            transform: rotate(15deg);
+            transition: all 0.3s;
+        }
+        .shit-item:hover {
+            transform: scale(1.2) rotate(-15deg);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .shit-marquee {
+            font-size: 3em;
+            color: yellow;
+            margin: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="shit-header">💩</div>
+    <h1>WELCOME TO THE SHIT SITE</h1>
+    
+    <div class="shit-marquee">
+        <marquee behavior="scroll" direction="left">
+            SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT 
+        </marquee>
+    </div>
+    
+    <button class="shit-button" onclick="addMoreShit()">CLICK FOR SHIT</button>
+    
+    <div class="shit-gallery" id="shitContainer">
+        <!-- SHIT WILL APPEAR HERE -->
+    </div>
+    
+    <audio id="shitSound" src="https://www.soundjay.com/buttons/sounds/button-10.mp3" preload="auto"></audio>
+    
+    <script>
+        const shitWords = ["SHIT", "💩", "POOP", "CRAP", "DUNG", "TURD", "FECES", "DOOKIE"];
+        
+        function addMoreShit() {
+            document.getElementById('shitSound').play();
+            const container = document.getElementById('shitContainer');
+            
+            for (let i = 0; i < 5; i++) {
+                const shitItem = document.createElement('div');
+                shitItem.className = 'shit-item';
+                shitItem.textContent = shitWords[Math.floor(Math.random() * shitWords.length)];
+                container.appendChild(shitItem);
+            }
+            
+            // Random background color
+            document.body.style.backgroundColor = `rgb(${Math.random() * 100 + 100}, ${Math.random() * 50}, 0)`;
+        }
+        
+        // Initial shit load
+        window.onload = function() {
+            addMoreShit();
+            setInterval(() => {
+                document.querySelector('.shit-header').style.fontSize = `${Math.random() * 100 + 50}px`;
+            }, 500);
+        };
+    </script>
+</body>
+</html>
