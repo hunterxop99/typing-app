@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Shit Site 💩</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: #fffbe7;
+      color: #4a3f35;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0;
+    }
+    .btn {
+      background: #8b4513;
+      color: #fff;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.2em;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .btn:hover {
+      background: #a0522d;
+    }
+    .output {
+      margin-top: 30px;
+      font-size: 1.5em;
+    }
+    .shit-image {
+      width: 200px;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💩 Welcome to The Shit Site 💩</h1>
+  <p>It’s Shitty. It’s Useless. It’s Beautiful.</p>
+
+  <button class="btn" onclick="generateShit()">Generate Shit</button>
+  <button class="btn" onclick="flushSite()">Flush</button>
+  <button class="btn" onclick="getHoroscope()">Shit Horoscope</button>
+
+  <div class="output" id="output"></div>
+  <img id="shitImage" class="shit-image" src="" alt="">
+
+  <script>
+    const quotes = [
+      "Sometimes life stinks, but so does fertilizer.",
+      "When in doubt, flush it out.",
+      "You are the poop emoji come to life.",
+      "Behind every great man is a toilet.",
+      "Shit happens. Keep scrolling.",
+      "Be the 💩 you want to see in the world."
+    ];
+
+    const images = [
+      "https://i.imgur.com/Xl8Xj5X.png",
+      "https://i.imgur.com/UrRQUZR.png",
+      "https://i.imgur.com/pRwYwWc.png",
+      "https://i.imgur.com/g6G3UHd.png"
+    ];
+
+    const sounds = [
+      "https://www.soundjay.com/human/fart-01.mp3",
+      "https://www.soundjay.com/button/button-16.mp3",
+      "https://www.soundjay.com/misc/sounds/bell-ringing-01.mp3"
+    ];
+
+    function generateShit() {
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
+      const img = images[Math.floor(Math.random() * images.length)];
+      const sound = sounds[Math.floor(Math.random() * sounds.length)];
+
+      document.getElementById("output").textContent = quote;
+      document.getElementById("shitImage").src = img;
+
+      const audio = new Audio(sound);
+      audio.play();
+    }
+
+    function flushSite() {
+      document.body.innerHTML = "<h1>💩 Flushed. Goodbye.</h1>";
+    }
+
+    function getHoroscope() {
+      const signs = ["Aries", "Taurus", "Cancer", "Leo", "Poopicorn"];
+      const fortunes = [
+        "You'll step on something squishy today.",
+        "Beware of spicy food. It's coming back.",
+        "A toilet will save you today.",
+        "Brown is your lucky color. Obviously.",
+        "You are full of it. In a good way."
+      ];
+      const randomSign = signs[Math.floor(Math.random() * signs.length)];
+      const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+      document.getElementById("output").textContent =
+        `🪐 Your Shit Horoscope (${randomSign}): ${randomFortune}`;
+    }
+  </script>
+</body>
+</html>
